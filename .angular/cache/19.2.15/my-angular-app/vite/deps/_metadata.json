@@ -1,0 +1,70 @@
+{
+  "hash": "d2b961cf",
+  "configHash": "7784cf7e",
+  "lockfileHash": "fec4410f",
+  "browserHash": "3be6d92d",
+  "optimized": {
+    "@angular/common": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "b200c24d",
+      "needsInterop": false
+    },
+    "@angular/common/http": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/http.mjs",
+      "file": "@angular_common_http.js",
+      "fileHash": "d9cbf264",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "d48112b7",
+      "needsInterop": false
+    },
+    "@angular/forms": {
+      "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
+      "file": "@angular_forms.js",
+      "fileHash": "e036f267",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "f309df92",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "c5d4ac19",
+      "needsInterop": false
+    },
+    "rxjs": {
+      "src": "../../../../../../node_modules/rxjs/dist/esm5/index.js",
+      "file": "rxjs.js",
+      "fileHash": "88e91d3c",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-AFMVD37D": {
+      "file": "chunk-AFMVD37D.js"
+    },
+    "chunk-A64RSZVC": {
+      "file": "chunk-A64RSZVC.js"
+    },
+    "chunk-RPXGKVJB": {
+      "file": "chunk-RPXGKVJB.js"
+    },
+    "chunk-WIRBZNVZ": {
+      "file": "chunk-WIRBZNVZ.js"
+    },
+    "chunk-UXBZW5V6": {
+      "file": "chunk-UXBZW5V6.js"
+    },
+    "chunk-7PP4ZR3C": {
+      "file": "chunk-7PP4ZR3C.js"
+    }
+  }
+}
