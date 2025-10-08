@@ -5,6 +5,10 @@ import { CreateProductComponent } from './components/create-product/create-produ
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductSearchComponent } from './components/product-search/product-search.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
+import { DealerRegistrationComponent } from './components/dealer-registration/dealer-registration.component';
+import { LoginComponent } from './components/login/login.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { DealerListComponent } from './components/dealer-list/dealer-list.component';
 
 export const routes: Routes = [
     {path: '' , redirectTo: 'home', pathMatch: 'full'},
@@ -13,6 +17,11 @@ export const routes: Routes = [
     {path: 'add-product/:pid', component: CreateProductComponent},
     {path: 'product-details/:pid' , component: ProductDetailsComponent},
     {path: 'search' , component: ProductSearchComponent},
-    {path: 'aboutus' , component: AboutusComponent},    
+    {path: 'aboutus' , component: AboutusComponent},
+    {path: 'register' , component: DealerRegistrationComponent},
+    {path: 'login' , component: LoginComponent},
+    {path: 'logout' , component: LogoutComponent},    
+    {path: 'dealers' , component: DealerListComponent},
+
 
 ];

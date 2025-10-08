@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterLink, RouterModule } from '@angular/router';
+import { AuthenticationService } from '../../service/authentication.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,6 +11,25 @@ import { Router, RouterLink, RouterModule } from '@angular/router';
 })
 export class NavbarComponent {
 
-  
+  title = 'product-hive-consumer';
+  username: string = '';
+  isUserLoggedIn: boolean = false;
+
+
+
+  constructor(public authService: AuthenticationService) { }
+
+  ngOnInit() {
+    // Subscribe to userName$ observable to get updates dynamically
+    this.authService.userName$.subscribe((email: string) => {
+      this.username = email;
+      this.isUserLoggedIn = this.authService.isLoggedIn();
+    });
+  }
+
+  handleLogout() {
+    this.authService.logout();
+  }
+
 
 }
