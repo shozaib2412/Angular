@@ -1,45 +1,77 @@
-/* Flexbox container for the app */
+/* ===== Root Layout ===== */
 .app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: #f9fafb;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  color: #2e2e2e;
 }
 
-/* Header styles */
+/* ===== Header ===== */
 .app-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #282c34;
-  padding: 20px;
-  color: white;
+  background: linear-gradient(135deg, #1565c0, #1e88e5);
+  padding: 15px 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 }
 
-
 .app-logo {
-  height: 75px;
+  height: 60px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.app-logo:hover {
+  transform: scale(1.05);
 }
 
 .app-header h1 {
-  flex-grow: 1;
+  flex: 1;
   text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
   margin: 0;
-  /* font-size: 2rem; */
-  font-size: 36px;
-  font-weight: bold;
-  font-family: Montserrat, sans-serif;
-  color:white;
-  text-shadow: 0 2px 4px goldenrod;
-  margin-bottom: 20px;
 }
 
-/* Section styles */
+/* ===== Navigation (optional) ===== */
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #e3f2fd;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ffca28;
+}
+
+/* ===== Main Section ===== */
 section {
-  flex-grow: 1;
-  padding: 20px;
+  flex: 1;
+  padding: 40px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f9fafb;
 }
 
-/* Section background responsive and auto height */
+/* ===== Section Background Container ===== */
 section div {
   display: flex;
   justify-content: center;
@@ -47,24 +79,126 @@ section div {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: auto;
   width: 100%;
+  min-height: 60vh;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* Footer styles */
+/* ===== Footer ===== */
 .footer {
-  background-color: #282c34;
-  color: white;
+  background: #0d1117;
+  color: #e0e0e0;
   text-align: center;
-  padding: 50px;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  height: 100px;
-  font-weight: bolder;
+  padding: 30px 20px;
+  margin-top: auto;
+  box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.3);
+  font-weight: 500;
+  border-top: 2px solid rgba(255, 255, 255, 0.05);
 }
 
 .footer p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+.footer p:hover {
+  color: #ffca28;
+  transition: color 0.3s ease;
+}
+
+/* ===== Buttons ===== */
+button {
+  background-color: #1e88e5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #1565c0;
+  transform: translateY(-2px);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 992px) {
+  .app-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .app-header h1 {
+    font-size: 1.8rem;
+    margin-top: 10px;
+  }
+
+  section {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .app-logo {
+    height: 50px;
+  }
+
+  .footer {
+    padding: 20px 10px;
+  }
+
+  section div {
+    min-height: 50vh;
+  }
+}
+
+/* Ensure full-width layout globally */
+html, body {
+  width: 100%;
   margin: 0;
-  font-size: 0.9rem;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.app, .home-page, section {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove restrictive padding from sections */
+section,
+.categories,
+.features,
+.cta {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Fix grid spacing without reducing width */
+.category-grid,
+.feature-grid {
+  padding: 0 40px; /* add spacing inside only */
+}
+
+/* Hero section should fully stretch */
+.hero {
+  width: 100vw;
+  margin: 0;
+}
+
+/* If you use container divs for backgrounds */
+.main-section {
+  width: 100%;
+  background-size: cover;
 }

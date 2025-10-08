@@ -1,20 +1,22 @@
 <div class="app">
+  <!-- Header Section -->
   <header class="app-header">
-    <img src="\images\product-hive.jpg" class="app-logo" alt="logo">
-    <h1>PRODUCT HIVE</h1>
+    <img src="/images/product-hive.jpg" class="app-logo" alt="ShopHive Logo" />
+    <h1>ShopHive</h1>
   </header>
+
+  <!-- Navigation Bar -->
   <app-navbar></app-navbar>
 
-  <div style="background-image: url(/images/img2.jpg);background-repeat: no-repeat; height: fit-content;
-  background-size: cover;">
-    <section>
-      <router-outlet></router-outlet> <!--Displays Child Components-->
+  <!-- Main Section -->
+  <main class="main-section">
+    <section class="content-section">
+      <router-outlet></router-outlet>
     </section>
-  </div>
+  </main>
 
-
-  <footer class='footer'>
-    <p>&copy; All Right Reserved to Coforge Technologies</p>
+  <!-- Footer Section -->
+  <footer class="footer">
+    <p>&copy; 2025 ShopHive. All Rights Reserved.</p>
   </footer>
-  
 </div>
