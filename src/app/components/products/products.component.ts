@@ -1,64 +1,58 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Product } from '../../model/product';
-import { ProductsService } from '../../service/products.service';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProductsService } from '../../service/products.service';
+// import { CartService } from '../services/cart.service';
+// import { Product } from '../models/product.model'//;
+import { Product } from '../../model/product';
 
 @Component({
-  selector: 'app-products',
-  imports: [CommonModule],
-  templateUrl: './products.component.html',
-  styleUrl: './products.component.css'
+  selector: 'app-product',
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.css']
 })
-export class ProductsComponent {
+export class ProductsComponent implements OnInit {
 
-  //Observable is a type to handle asynchronous data streams 
-  products: Observable<Product[]> | any;
-  message: string = '';
+  products: Product[] = [];
+  filteredProducts: Product[] = [];
+  searchTerm: string = '';
 
-  constructor(private productService: ProductsService, private router: Router) { }
+  constructor(
+    private productService: ProductsService,
+    // private cartService: CartService,
+    private router: Router
+  ) {}
 
-  //Angular life cycle method ngonit() - invokes when component is initialized
   ngOnInit(): void {
-    this.reloadData();
+    this.loadProducts();
   }
 
-  reloadData() {
+  loadProducts(): void {
     this.productService.getProductList().subscribe({
-      next: (data) => {
-        this.products = data;   // Assign the plain data , no need for async pipe in the template
+      next: (data: any) => {
+        this.products = data;
+        this.filteredProducts = data;
       },
-      error: (err) => {
-        console.error("Error fetching products:", err.message);
+      error: (err :any) => {
+        console.error('Error loading products:', err);
       }
     });
   }
 
-  addProduct(): void {
-    this.router.navigate(['/add-product/_add']);  // _add is a special value to indicate new product
-  }
-  editProduct(pid: number): void {
-    this.router.navigate(['/add-product', pid]);
-  }
-
-  productDetails(pid: number): void {
-    this.router.navigate(['/product-details', pid]);
-  }
-  deleteProduct(pid:number):void{
-    this.productService.deleteProduct(pid).subscribe({
-      next: () => {
-        this.message = 'Product deleted successfully.';
-        setTimeout(() => {
-          this.message = '';
-          this.reloadData();  // Refresh products list after deletion
-        }, 2000);  // Clear the message after 2 seconds
-      },
-      error: (err) => {
-        console.error('Error deleting product:', err.message);  // Handle the error
-        this.message = 'Error deleting product. Please try again later.';
-      }
-    });
+  filterProducts(): void {
+    const term = this.searchTerm.toLowerCase();
+    this.filteredProducts = this.products.filter(
+      (p) =>
+        p.name.toLowerCase().includes(term) ||
+        p.brand.toLowerCase().includes(term)
+    );
   }
 
+  viewDetails(id: number): void {
+    this.router.navigate(['/product', id]);
+  }
+
+  addToCart(product: Product): void {
+    // this.cartService.addToCart(product);
+    alert(`${product.name} added to your cart!`);
+  }
 }
